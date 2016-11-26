@@ -35,9 +35,7 @@ class ToolBar extends React.Component {
 		});
 		return (
 			<div className="tool_bar">
-				<div>
-					{toolsElement}
-				</div>
+				<div>{toolsElement}</div>
 
 				<div ref="ToolTip" 
 					className="tool_tip" 
