@@ -14,20 +14,21 @@ class ToolBar extends React.Component {
 
 	render(){
 		let tools = [
-			{description:'表格',class_name:'fa fa-table'},
-			{description:'图片',class_name:'fa fa-picture-o'},
-			{description:'链接',class_name:'fa fa-link'},
-			{description:'引用',class_name:'fa fa-quote-right'},
-			{description:'有序列表',class_name:'fa fa-list-ol'},
-			{description:'无序列表',class_name:'fa fa-list-ul'},
-			{description:'斜体',class_name:'fa fa-italic'},
-			{description:'粗体',class_name:'fa fa-bold'},
-			{description:'分割线',class_name:'fa fa-minus-square-o '}
+			{description:'表格'     ,type:'table'   ,class_name:'fa fa-table'},
+			{description:'图片'     ,type:'picture' ,class_name:'fa fa-picture-o'},
+			{description:'链接'     ,type:'link'    ,class_name:'fa fa-link'},
+			{description:'引用'     ,type:'quote'   ,class_name:'fa fa-quote-right'},
+			{description:'有序列表' ,type:'ul'      ,class_name:'fa fa-list-ol'},
+			{description:'无序列表' ,type:'ol'      ,class_name:'fa fa-list-ul'},
+			{description:'斜体'     ,type:'italic'  ,class_name:'fa fa-italic'},
+			{description:'粗体'     ,type:'bold'    ,class_name:'fa fa-bold'},
+			{description:'分割线'   ,type:'line'    ,class_name:'fa fa-minus-square-o '}
 		]
 		let toolsElement = tools.map((tool,index,array)=>{
 			return(
 				<a onMouseEnter={this.showToolTip(tool.description).bind(this)} 
 					onMouseLeave={this.hideToolTip.bind(this)} 
+					onClick={this.createElemet(tool.type).bind(this)}
 					key={index} >
 					<i className={tool.class_name}></i>
 				</a>
@@ -47,8 +48,7 @@ class ToolBar extends React.Component {
 	}
 
 	showToolTip(des){
-		return function(e){
-			console.log();
+		return (e)=>{
 			this.setState({
 				showToolTip:true,
 				toolText:des,
@@ -63,6 +63,15 @@ class ToolBar extends React.Component {
 			showToolTip:false,
 		});
 	}
+
+	createElemet(type){
+		return (e)=>{
+			if(this.props.clickHandler){
+				this.props.clickHandler(type);
+			}
+		}
+	}
+	
 }
 
 export default ToolBar;

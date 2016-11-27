@@ -1,6 +1,8 @@
 import React from 'react';	
 import ToolBar from './ToolBar.jsx'
 
+import Quote from './Quote.jsx'
+
 class Editor extends React.Component {
 	
 	constructor(props){
@@ -21,7 +23,7 @@ class Editor extends React.Component {
 					retruns = <div className="table" key={index}></div>;
 					break;
 				case "quote":
-					retruns = <div className="quote" key={index}></div>;
+					retruns = <Quote key={index} />;
 					break;
 			}
 			return(retruns)
@@ -29,11 +31,19 @@ class Editor extends React.Component {
 
 		return (
 			<div>
-				<ToolBar />
+				<ToolBar clickHandler={this.createElement.bind(this)} />
 
 				<div>{element}</div>
 			</div>
 		);
+	}
+
+	createElement(type){
+		switch(type){
+			case "quote":
+				console.log(window.markdownit().render('> markdown-it rulezz!'));
+				break;
+		}
 	}
 
 }

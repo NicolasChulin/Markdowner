@@ -6,3 +6,18 @@
 	margin: 10px;
 	position: absolute;
 }
+
+textarea{
+	outline:none;
+	border:none;
+	resize:none;
+	overflow: hidden;
+}
+
+textarea,input,p,span{
+	font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
+}
+
+.quote{
+	border: 1px dashed #581515;
+}
