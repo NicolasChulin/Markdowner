@@ -14,25 +14,31 @@ textarea{
 	overflow: hidden;
 	width:100%;
 }
+textarea{
+	margin-bottom: 0;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 22.5px;
+	height:22.5px;
+}
 
 textarea,input,p,span{
 	font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑";
 }
 
-.quote{
-	/*border: 1px dashed #581515;*/
+.quote,.ol,.ul{
+	border: 1px dashed #581515;
+	padding: 10px;
+	margin:2px;
 }
 
 blockquote {
-    padding: 0 0 0 15px;
-    margin: 0 0 18px;
-    border-left: 5px solid #eeeeee;
+	padding: 0 0 0 15px;
+	margin: 0 0 18px;
+	border-left: 5px solid #eeeeee;
 }
 
-blockquote textarea{
-	margin-bottom: 0;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 22.5px;
-    height:22.5px;
+li textarea{
+	margin-top: -22.5px;
+	vertical-align: top;
 }

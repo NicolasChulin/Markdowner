@@ -1,17 +1,16 @@
 import React from 'react';	
-import ToolBar from './ToolBar.jsx'
+import ToolBar from './component/ToolBar.jsx'
 
-import Quote from './Quote.jsx'
+import Quote from './component/Quote.jsx'
+import Ol from './component/Ol.jsx'
+import Ul from './component/Ul.jsx'
 
 class Editor extends React.Component {
 	
 	constructor(props){
 		super(props);
 		this.state = {
-			elements:[
-				{type:'table'},
-				{type:'quote',data:{}}
-			]
+			elements:[]
 		};
 	}
 
@@ -24,6 +23,12 @@ class Editor extends React.Component {
 					break;
 				case "quote":
 					retruns = <Quote key={index} onChange={this.elementHandler(index)} />;
+					break;
+				case "ol":
+					retruns = <Ol key={index} onChange={this.elementHandler(index)} />;
+					break;
+				case "ul":
+					retruns = <Ul key={index} onChange={this.elementHandler(index)} />;
 					break;
 			}
 			return(retruns)
@@ -39,22 +44,28 @@ class Editor extends React.Component {
 	}
 
 	createElement(type){
+		var newElements = this.state.elements.concat();
 		switch(type){
 			case "table":
 				console.log(this.state.elements);
 				break;
 			case "quote":
 				//console.log(window.markdownit().render('> markdown-it rulezz!'));
-				var newElements = this.state.elements.concat();
 				newElements.push({type:'quote',data:{}});
-				this.setState({elements:newElements});
+				break;
+			case "ol":
+				newElements.push({type:'ol',data:{}});
+				break;
+			case "ul":
+				newElements.push({type:'ul',data:{}});
 				break;
 		}
+		this.setState({elements:newElements});
 	}
 
 	elementHandler(index){
-		return (e)=>{
-			this.state.elements[index].data = e.target.value;
+		return (data)=>{
+			this.state.elements[index].data = data;
 		}
 		
 	}

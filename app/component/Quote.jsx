@@ -1,12 +1,12 @@
 import React from 'react';	
-import { IntervalEnhance } from './enhance/resizeTextareaEnhance.jsx';
+import { IntervalEnhance } from '../enhance/resizeTextareaEnhance.jsx';
 
 class Quote extends React.Component {
 	
 	constructor(props){
 		super(props);
 		this.state = {
-			
+			value:''
 		};
 	}
 
@@ -16,8 +16,8 @@ class Quote extends React.Component {
 				<blockquote>
 					<textarea
 						ref='textarea'
-						onChange={this.props.onChange}
-						onFocus={this.props.resizeFunc} 
+						value={this.state.value}
+						onChange={this.handlenamechange.bind(this)}
 						onInput={this.props.resizeFunc} 
 						>
 					</textarea>
@@ -25,6 +25,15 @@ class Quote extends React.Component {
 			</div>
 		);
 	}
+
+	handlenamechange(e){
+		this.setState({value:e.target.value});
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		this.props.onChange(this.state.value);
+	}
+
 
 }
 

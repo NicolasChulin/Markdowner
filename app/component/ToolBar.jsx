@@ -18,8 +18,8 @@ class ToolBar extends React.Component {
 			{description:'图片'     ,type:'picture' ,class_name:'fa fa-picture-o'},
 			{description:'链接'     ,type:'link'    ,class_name:'fa fa-link'},
 			{description:'引用'     ,type:'quote'   ,class_name:'fa fa-quote-right'},
-			{description:'有序列表' ,type:'ul'      ,class_name:'fa fa-list-ol'},
-			{description:'无序列表' ,type:'ol'      ,class_name:'fa fa-list-ul'},
+			{description:'有序列表' ,type:'ol'      ,class_name:'fa fa-list-ol'},
+			{description:'无序列表' ,type:'ul'      ,class_name:'fa fa-list-ul'},
 			{description:'斜体'     ,type:'italic'  ,class_name:'fa fa-italic'},
 			{description:'粗体'     ,type:'bold'    ,class_name:'fa fa-bold'},
 			{description:'分割线'   ,type:'line'    ,class_name:'fa fa-minus-square-o '}

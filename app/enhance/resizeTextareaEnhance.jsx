@@ -8,10 +8,10 @@ export let IntervalEnhance = ComponsedComponent => class extends React.Component
 		};
 	}
 
-	resizeTextarea(){
+	resizeTextarea(e){
 		var scrollTop, height,minHeight,
 			padding = 0,
-			elem = this.refs.children.refs.textarea,
+			elem = e.target,
 			style = elem.style;
 		if(elem.minH){
 			minHeight = elem.minH;
@@ -34,16 +34,7 @@ export let IntervalEnhance = ComponsedComponent => class extends React.Component
 		};  
 	};
 
-	// componentWillMount(){
-	// 	window.addEventListener('resize',()=>{
-	// 		this.resizeTextarea();
-	// 	})
-	// }
-	// componentWillUnmount(){
-	// 	window.removeEventListener('resize');
-	// }
-
 	render() {
-		return <ComponsedComponent ref='children' {...this.props} {...this.state} resizeFunc={this.resizeTextarea.bind(this)} />;
+		return <ComponsedComponent ref='children' {...this.props} {...this.state} resizeFunc={this.resizeTextarea} />;
 	}
 };
