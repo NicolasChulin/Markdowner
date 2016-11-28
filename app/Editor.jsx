@@ -10,7 +10,7 @@ class Editor extends React.Component {
 		this.state = {
 			elements:[
 				{type:'table'},
-				{type:'quote'}
+				{type:'quote',data:{}}
 			]
 		};
 	}
@@ -23,7 +23,7 @@ class Editor extends React.Component {
 					retruns = <div className="table" key={index}></div>;
 					break;
 				case "quote":
-					retruns = <Quote key={index} />;
+					retruns = <Quote key={index} onChange={this.elementHandler(index)} />;
 					break;
 			}
 			return(retruns)
@@ -40,11 +40,26 @@ class Editor extends React.Component {
 
 	createElement(type){
 		switch(type){
+			case "table":
+				console.log(this.state.elements);
+				break;
 			case "quote":
-				console.log(window.markdownit().render('> markdown-it rulezz!'));
+				//console.log(window.markdownit().render('> markdown-it rulezz!'));
+				var newElements = this.state.elements.concat();
+				newElements.push({type:'quote',data:{}});
+				this.setState({elements:newElements});
 				break;
 		}
 	}
+
+	elementHandler(index){
+		return (e)=>{
+			this.state.elements[index].data = e.target.value;
+		}
+		
+	}
+
+	
 
 }
 

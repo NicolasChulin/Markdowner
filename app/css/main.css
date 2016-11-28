@@ -12,6 +12,7 @@ textarea{
 	border:none;
 	resize:none;
 	overflow: hidden;
+	width:100%;
 }
 
 textarea,input,p,span{
@@ -19,5 +20,19 @@ textarea,input,p,span{
 }
 
 .quote{
-	border: 1px dashed #581515;
+	/*border: 1px dashed #581515;*/
+}
+
+blockquote {
+    padding: 0 0 0 15px;
+    margin: 0 0 18px;
+    border-left: 5px solid #eeeeee;
+}
+
+blockquote textarea{
+	margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22.5px;
+    height:22.5px;
 }
