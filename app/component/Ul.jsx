@@ -44,8 +44,6 @@ class Ul extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		var ele = this.refs[this.state.currentEditIndex];
-		ele.focus();
 		this.props.onChange(this.state.children);
 	}
 
@@ -69,6 +67,8 @@ class Ul extends React.Component {
 			children:newElements,
 			currentEditIndex:this.state.currentEditIndex+1
 		});
+		var ele = this.refs[this.state.currentEditIndex];
+		ele.focus();
 	}
 
 }

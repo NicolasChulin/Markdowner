@@ -45,8 +45,6 @@ class Ol extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		var ele = this.refs[this.state.currentEditIndex];
-		if(ele)ele.focus();
 		this.props.onChange(this.state.children);
 	}
 
@@ -70,6 +68,8 @@ class Ol extends React.Component {
 			children:newElements,
 			currentEditIndex:this.state.currentEditIndex+1
 		});
+		var ele = this.refs[this.state.currentEditIndex];
+		if(ele)ele.focus();
 	}
 
 }
